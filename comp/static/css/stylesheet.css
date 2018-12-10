@@ -2,16 +2,31 @@ body {
   background: url(../img/bg.jpg);
   min-height: 100%;
   background-repeat: no-repeat;
-  background-size: fixed;
+  position: inherit;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 500px) {
     body {
-        background: url(/img/bg.jpg) no-repeat center center fixed;
+        background: url(../img/bg.jpg) no-repeat center center fixed;
         background-size: cover;
     }
 }
+.container {
+  text-align: center;
+  align-items: center;
+
+}
+.five {
+  text-align: center;
+  padding: 100px 100px 30px 100px;
+}
+
 h5 {
+  text-align: center;
+  padding: 100px 100px 30px 100px;
+}
+
+h4 {
   text-align: center;
   padding: 100px 100px 30px 100px;
 }
@@ -237,3 +252,8 @@ textarea:hover {
 #submit:hover {
   color: #e2dedb;
 }
+
+h4 {
+  text-align: center;
+  padding: 100px 100px 30px 100px;
+  position: absolute;
