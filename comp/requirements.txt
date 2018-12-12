@@ -2,4 +2,3 @@ Flask
 gunicorn
 waitress
 requests
-json
