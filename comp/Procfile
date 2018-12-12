@@ -1,1 +1,1 @@
-web: gunicorn app:bucketbabes --log-file=-
+web: gunicorn bucketbabes:app --log-file=-
