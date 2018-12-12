@@ -27,6 +27,7 @@ def weather():
     var0="It's {}C in {}, and the sky is {}".format(temperature, name, weather)
     if temperature > 10:
        var1="It's warm, you should eat ice cream!"
+       return render_template("xx.html", bg="sunny2.jpg", mess= var0, recco=var1)
     else:
        var1="It's cold, you can go bowling or watch theatre"
     return render_template("xx.html", bg="snow.jpg", mess= var0, recco=var1)
