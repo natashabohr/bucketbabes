@@ -1,13 +1,19 @@
 from flask import Flask, render_template, request
 import requests
 
-app = Flask("MyApp")
+app = Flask(__name__)
 # can add additional page after /
 
 @app.route("/")
 @app.route("/home")
 def home():
     return render_template("home.html")
+
+@app.route("/signup", methods=["POST"])
+def sign_up():
+    form_data = request.form
+    print form_data["email"]
+    return "All OK"
 
 @app.route("/contact")
 def contact():
@@ -48,4 +54,5 @@ def receive_message(email, name, message):
               "subject": "STUCK Message from {}".format(name.title()),
               "html": render_template("message.html", names=name.title(), emails=email.lower(), messages=message)})
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True, use_reloader=True)
