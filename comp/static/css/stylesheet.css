@@ -1,7 +1,6 @@
 body {
   /*background: url(../img/bg.jpg);*/
   min-height: 100%;
-  background-repeat: no-repeat;
   max-width: 100%;
   background-size: cover;
 }
