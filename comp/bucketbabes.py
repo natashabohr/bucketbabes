@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import requests
+import json
 
 app = Flask(__name__)
 # can add additional page after /
@@ -9,11 +10,27 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/signup", methods=["POST"])
-def sign_up():
+
+@app.route("/xx", methods=["POST"])
+def weather():
     form_data = request.form
-    print form_data["email"]
-    return "All OK"
+    var0="zero"
+    var1="one"
+    endpoint = "http://api.openweathermap.org/data/2.5/weather"
+    parameters = {"q": form_data["input-location"], "units":"metric", "appid":"4fc7558964b704ba7932d7e122a8766e"}
+    response = requests.get(endpoint, params = parameters)
+    data = response.json()
+    temperature = data["main"]["temp"]
+    name = data["name"]
+    weather = data["weather"][0]["main"]
+
+    var0="It's {}C in {}, and the sky is {}".format(temperature, name, weather)
+    if temperature > 10:
+       var1="It's warm, you should eat ice cream!"
+    else:
+       var1="It's cold, you can go bowling or watch theatre"
+    return render_template("xx.html", bg="snow.jpg", mess= var0, recco=var1)
+
 
 @app.route("/contact")
 def contact():
